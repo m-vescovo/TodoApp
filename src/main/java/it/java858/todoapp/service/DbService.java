@@ -14,23 +14,25 @@ import javax.persistence.Persistence;
  * @author tss
  */
 public class DbService {
-    
+
     private static EntityManagerFactory emf;
-    
+
     private static EntityManager em;
-    
-    private DbService(){
-        
+
+    private DbService() {
+
     }
-    static{
-        emf= Persistence.createEntityManagerFactory("pu");
-        em= emf.createEntityManager();
-            }
-    public static EntityManager getEm(){
-        if(em!=null && em.isOpen()){
-        return em;
+
+    static {
+        emf = Persistence.createEntityManagerFactory("pu");
+        em = emf.createEntityManager();
     }
-        em=emf.createEntityManager();
+
+    public static EntityManager getEm() {
+        if (em != null && em.isOpen()) {
+            return em;
+        }
+        em = emf.createEntityManager();
         return em;
     }
 }

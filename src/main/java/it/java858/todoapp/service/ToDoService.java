@@ -17,7 +17,7 @@ public class ToDoService {
     private ToDoService(){
         
     }
-    public static void save(ToDo toSave){
+    public static ToDo save(ToDo toSave){
         EntityManager em = DbService.getEm();
         em.getTransaction().begin();
         ToDo saved= em.merge(toSave);
