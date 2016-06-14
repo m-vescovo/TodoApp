@@ -104,7 +104,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuCreaCategoiraActionPerformed
 
     private void mnuGestCategorieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGestCategorieActionPerformed
-        // TODO add your handling code here:
+        CategoriaCRUD crud =new CategoriaCRUD(this, true);
+        crud.setLocationRelativeTo(this);
+        crud.setVisible(true);
+        
     }//GEN-LAST:event_mnuGestCategorieActionPerformed
 
     

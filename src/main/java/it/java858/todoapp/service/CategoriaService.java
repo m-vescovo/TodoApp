@@ -7,6 +7,7 @@
 package it.java858.todoapp.service;
 
 import it.java858.todoapp.entity.Categoria;
+import java.util.List;
 import javax.persistence.EntityManager;
 
 
@@ -25,6 +26,20 @@ public class CategoriaService {
         Categoria saved=em.merge(c);
         em.getTransaction().commit();//finisce la lista delle azioni ed esegue tutte le operazioni tutte assieme
         return saved;
+    }
+    
+    public static void elimina(Categoria c){
+        EntityManager em =DbService.getEm();
+        em.getTransaction().begin();//inizia la lista dei comandi da fare tutti assieme
+        em.remove(c);
+        em.getTransaction().commit();//finisce la lista delle azioni ed esegue tutte le operazioni tutte assieme
+    }
+    
+    public static List<Categoria>findAll(){
+        EntityManager em = DbService.getEm();
+        List<Categoria> listCat;
+        listCat=em.createQuery("select c  from Categoria c  order by c.nome", Categoria.class).getResultList();
+        return listCat;
     }
     
 }
