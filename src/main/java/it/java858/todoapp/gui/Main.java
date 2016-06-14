@@ -97,7 +97,9 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuesciActionPerformed
 
     private void mnuCreaCategoiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCreaCategoiraActionPerformed
-        // TODO add your handling code here:
+        CategoriaEdit edit =new CategoriaEdit(this, true);
+        edit.setLocationRelativeTo(this);
+        edit.setVisible(true);
         
     }//GEN-LAST:event_mnuCreaCategoiraActionPerformed
 
