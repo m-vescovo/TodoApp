@@ -5,8 +5,10 @@
  */
 package it.java858.todoapp.gui;
 
+
 import it.java858.todoapp.entity.Categoria;
 import it.java858.todoapp.service.CategoriaService;
+import java.awt.Dialog;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,8 +23,16 @@ public class CategoriaEdit extends javax.swing.JDialog {
     public CategoriaEdit(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setTitle("Crea o modifica categoria");
     }
 
+    public CategoriaEdit(Dialog owner, boolean modal) {
+        super(owner, modal);
+        initComponents();
+        this.setTitle("Crea o modifica categoria");
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

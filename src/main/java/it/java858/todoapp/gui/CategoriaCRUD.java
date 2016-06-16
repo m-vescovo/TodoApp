@@ -5,6 +5,7 @@
  */
 package it.java858.todoapp.gui;
 
+import it.java858.todoapp.gui.model.CategoriaTM;
 import it.java858.todoapp.entity.Categoria;
 import it.java858.todoapp.service.CategoriaService;
 import javax.swing.ListSelectionModel;
@@ -23,6 +24,7 @@ public class CategoriaCRUD extends javax.swing.JDialog {
     public CategoriaCRUD(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setTitle("Gestione categorie");
         categoriaTM = new CategoriaTM(CategoriaService.findAll());
         tblCategorie.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//posso selezionare solo una riga per volta
         tblCategorie.setModel(categoriaTM);
@@ -58,6 +60,11 @@ public class CategoriaCRUD extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tblCategorie);
 
         cmdModifica.setText("Modifica");
+        cmdModifica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdModificaActionPerformed(evt);
+            }
+        });
 
         cmdCancella.setText("Cancella");
         cmdCancella.addActionListener(new java.awt.event.ActionListener() {
@@ -100,6 +107,15 @@ public class CategoriaCRUD extends javax.swing.JDialog {
         CategoriaService.elimina(toRemove);
         categoriaTM.changeData(CategoriaService.findAll());
     }//GEN-LAST:event_cmdCancellaActionPerformed
+
+    private void cmdModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdModificaActionPerformed
+        Categoria toEdit=categoriaTM.get(tblCategorie.convertRowIndexToModel(tblCategorie.getSelectedRow()));
+        CategoriaEdit editView = new CategoriaEdit(this, true);
+        editView.setLocationRelativeTo(this);
+        editView.setVisible(true);
+
+        
+    }//GEN-LAST:event_cmdModificaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -18,6 +18,8 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        this.setTitle("Gestione ToDo");
+        
     }
 
     /**
@@ -93,7 +95,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void mnuesciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuesciActionPerformed
-        // TODO add your handling code here:
+        // genera il pulsante esci
 
         System.exit(0);//per terminare il programma
     }//GEN-LAST:event_mnuesciActionPerformed
