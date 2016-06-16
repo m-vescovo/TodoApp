@@ -5,9 +5,12 @@
  */
 package it.java858.todoapp;
 
+import it.java858.todoapp.entity.Categoria;
 import it.java858.todoapp.entity.ToDo;
 import it.java858.todoapp.gui.Main;
+import it.java858.todoapp.service.CategoriaService;
 import it.java858.todoapp.service.DbService;
+import it.java858.todoapp.service.event.CategoriaEventListener;
 import java.util.Date;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +24,8 @@ public class App {
 
     public static void main(String[] args) {
 
+        CategoriaService.addCategoriaEventListener(new AscoltaEventiCategoria());
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
@@ -41,3 +46,25 @@ public class App {
     }
 
 }
+class AscoltaEventiCategoria implements CategoriaEventListener{
+    
+     @Override
+    public void onCreate(Categoria c) {
+        System.out.println("hai creato la classe: "+c); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onUddate(Categoria c) {
+        System.out.println("hai aggiornato la classe: "+c); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onDelete(Categoria c) {
+        System.out.println("hai eliminato la classe: "+c); //To change body of generated methods, choose Tools | Templates.
+   
+        
+    }
+}
+
+  
+    
