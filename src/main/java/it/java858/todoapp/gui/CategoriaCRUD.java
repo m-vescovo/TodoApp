@@ -110,10 +110,10 @@ public class CategoriaCRUD extends javax.swing.JDialog {
 
     private void cmdModificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdModificaActionPerformed
         Categoria toEdit=categoriaTM.get(tblCategorie.convertRowIndexToModel(tblCategorie.getSelectedRow()));
-        CategoriaEdit editView = new CategoriaEdit(this, true);
+        CategoriaEdit editView = new CategoriaEdit(toEdit,this, true);
         editView.setLocationRelativeTo(this);
         editView.setVisible(true);
-
+        
         
     }//GEN-LAST:event_cmdModificaActionPerformed
 

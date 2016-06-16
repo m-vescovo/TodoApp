@@ -17,18 +17,31 @@ import javax.swing.JOptionPane;
  */
 public class CategoriaEdit extends javax.swing.JDialog {
 
+    private Categoria categoria;
+    
     /**
      * Creates new form CategoriaEdit
      */
-    public CategoriaEdit(java.awt.Frame parent, boolean modal) {
+    public CategoriaEdit(Categoria categoria, java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        init(categoria);
         this.setTitle("Crea o modifica categoria");
+        
+    }
+    //visualizza a video le proprieta
+    public void modelToView(){
+     txtNome.setText(categoria.getNome());
+    }
+    //salva nella categoria le proprietà impostate a video
+    public void viewToModel(){
+        categoria.setNome(txtNome.getText());
     }
 
-    public CategoriaEdit(Dialog owner, boolean modal) {
-        super(owner, modal);
+    public CategoriaEdit(Categoria categoria,java.awt.Dialog parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+        init(categoria);
         this.setTitle("Crea o modifica categoria");
     }
 
@@ -110,13 +123,11 @@ public class CategoriaEdit extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmdSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalvaActionPerformed
-      Categoria newc= new Categoria();
-      newc.setNome(txtNome.getText());
-      
-      CategoriaService.save(newc);
-      JOptionPane.showMessageDialog(this, "categoria salvata");
-      close();
-      
+     viewToModel();
+     CategoriaService.save(categoria);
+     JOptionPane.showMessageDialog(this, "categoria salvata");
+     close();
+     
     }//GEN-LAST:event_cmdSalvaActionPerformed
 
     private void cmdAnnullaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdAnnullaActionPerformed
@@ -141,4 +152,10 @@ public class CategoriaEdit extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
+
+    private void init(Categoria categoria) {
+     this.categoria = categoria;   
+     //txtNome.setText(categoria.getNome());
+     modelToView();
+    }
 }
