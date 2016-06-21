@@ -1,14 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.java858.todoapp.entity;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,27 +19,27 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author tss
- */
-
 @Entity
 public class ToDo implements Serializable {
-    @Id //indica che la proprietà long id è la chiave della tabella
-    @GeneratedValue(strategy = GenerationType.IDENTITY)//campo per autoincremento di id
-    private long id;
-    private String testo;
-    @Temporal(TemporalType.DATE)//stabilisce il tipo di dataCreazione successiva
-    private Date dataCreazione;
-    @ManyToMany
-    private Set<Categoria> categorie;
 
-    public long getId() {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String testo;
+    @Temporal(TemporalType.DATE)
+    private Date dataCreazione;
+    @ManyToMany(fetch = FetchType.EAGER)//relazione molti a molti
+    private Set<Categoria> categorie = new HashSet<>();
+
+    public ToDo() {
+        dataCreazione = new Date();
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -66,8 +69,8 @@ public class ToDo implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 59 * hash + (int) (this.id ^ (this.id >>> 32));
+        int hash = 3;
+        hash = 67 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -80,12 +83,15 @@ public class ToDo implements Serializable {
             return false;
         }
         final ToDo other = (ToDo) obj;
-        if (this.id != other.id) {
+        if (!Objects.equals(this.id, other.id)) {
             return false;
         }
         return true;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "ToDo{" + "id=" + id + ", testo=" + testo + ", dataCreazione=" + dataCreazione + ", categorie=" + categorie + '}';
+    }
+
 }

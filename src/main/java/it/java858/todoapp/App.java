@@ -25,7 +25,7 @@ public class App {
     public static void main(String[] args) {
 
         CategoriaService.addCategoriaEventListener(new AscoltaEventiCategoria());
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
@@ -33,7 +33,7 @@ public class App {
         });
         //System.err.println("Start jpa:....");
 
-       // EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
+        // EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         //EntityManager em = DbService.getEm(); //emf.createEntityManager(); // apre la connessione e da oggetto per interagire
         //System.err.println("jpa ok,,,");
         //ToDo td = new ToDo();//crea una nuova riga nel DB
@@ -46,9 +46,10 @@ public class App {
     }
 
 }
-class AscoltaEventiCategoria implements CategoriaEventListener{
-    
-     @Override
+
+class AscoltaEventiCategoria implements CategoriaEventListener {
+
+    @Override
     public void onCreate(Categoria c) {
         System.out.println("hai creato la categoria: "); //To change body of generated methods, choose Tools | Templates.
     }
@@ -61,10 +62,6 @@ class AscoltaEventiCategoria implements CategoriaEventListener{
     @Override
     public void onDelete(Categoria c) {
         System.out.println("hai eliminato la categoria: "); //To change body of generated methods, choose Tools | Templates.
-   
-        
+
     }
 }
-
-  
-    

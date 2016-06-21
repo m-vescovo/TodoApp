@@ -54,9 +54,10 @@ public class CategoriaTM extends AbstractTableModel {
 
     }
 
-    public String getColumnName(int column){ // metodo per mettere i nomi alle colonne
-    return nomi[column];
+    public String getColumnName(int column) { // metodo per mettere i nomi alle colonne
+        return nomi[column];
     }
+
     public Categoria get(int row) {
         return categorie.get(row);
     }

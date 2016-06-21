@@ -13,8 +13,8 @@ import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
- * 
- * 
+ *
+ *
  *
  * @author tss
  */
@@ -24,7 +24,7 @@ public class Main extends javax.swing.JFrame implements CategoriaEventListener {
      * Creates new form Main
      */
     public Main() {
-        
+
         initComponents();
         this.setTitle("Gestione ToDo");
         CategoriaService.addCategoriaEventListener(this);
@@ -114,20 +114,19 @@ public class Main extends javax.swing.JFrame implements CategoriaEventListener {
     }//GEN-LAST:event_mnuesciActionPerformed
 
     private void mnuCreaCategoiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuCreaCategoiraActionPerformed
-        CategoriaEdit edit =new CategoriaEdit(new Categoria(),this, true);
+        CategoriaEdit edit = new CategoriaEdit(new Categoria(), this, true);
         edit.setLocationRelativeTo(this);
         edit.setVisible(true);
-        
+
     }//GEN-LAST:event_mnuCreaCategoiraActionPerformed
 
     private void mnuGestCategorieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuGestCategorieActionPerformed
-        CategoriaCRUD crud =new CategoriaCRUD(this, true);
+        CategoriaCRUD crud = new CategoriaCRUD(this, true);
         crud.setLocationRelativeTo(this);
         crud.setVisible(true);
-        
+
     }//GEN-LAST:event_mnuGestCategorieActionPerformed
 
-    
         //</editor-fold>
 
     /* Create and display the form */
@@ -149,18 +148,18 @@ public class Main extends javax.swing.JFrame implements CategoriaEventListener {
     private javax.swing.JMenuItem mnuesci;
     // End of variables declaration//GEN-END:variables
 
-   @Override
+    @Override
     public void onCreate(Categoria c) {
         JOptionPane.showMessageDialog(this, "Nuova Categoria salvata "); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onUddate(Categoria c) {
-     JOptionPane.showMessageDialog(this, "Categoria modificata"); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(this, "Categoria modificata"); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onDelete(Categoria c) {
-         JOptionPane.showMessageDialog(this, "Categoria eliminata "); //To change body of generated methods, choose Tools | Templates.
+        JOptionPane.showMessageDialog(this, "Categoria eliminata "); //To change body of generated methods, choose Tools | Templates.
     }
 }
