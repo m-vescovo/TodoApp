@@ -113,7 +113,8 @@ public class CategoriaCRUD extends javax.swing.JDialog {
         CategoriaEdit editView = new CategoriaEdit(toEdit,this, true);
         editView.setLocationRelativeTo(this);
         editView.setVisible(true);
-        tblCategorie.updateUI();
+        //tblCategorie.updateUI(); per aggiornare la tabella quando torno indietro dalla modifica
+        //di seguito la stessa cosa ma fatta differentemente
         
     }//GEN-LAST:event_cmdModificaActionPerformed
 
