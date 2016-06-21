@@ -14,8 +14,8 @@ import it.java858.todoapp.entity.Categoria;
 
 public interface CategoriaEventListener {
 
-        public void onCreate(Categoria c);
-        public void onUddate(Categoria c);
-        public void onDelete(Categoria c);
+        public void onCreate(Categoria c);//metodo
+        public void onUddate(Categoria c);//metodo
+        public void onDelete(Categoria c);//metodo
     
 }

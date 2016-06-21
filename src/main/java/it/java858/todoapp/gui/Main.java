@@ -6,6 +6,11 @@
 package it.java858.todoapp.gui;
 
 import it.java858.todoapp.entity.Categoria;
+import it.java858.todoapp.service.CategoriaService;
+import it.java858.todoapp.service.event.CategoriaEventListener;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JOptionPane;
 
 /**
  * 
@@ -13,15 +18,21 @@ import it.java858.todoapp.entity.Categoria;
  *
  * @author tss
  */
-public class Main extends javax.swing.JFrame {
+public class Main extends javax.swing.JFrame implements CategoriaEventListener {
 
     /**
      * Creates new form Main
      */
     public Main() {
+        
         initComponents();
         this.setTitle("Gestione ToDo");
-        
+        CategoriaService.addCategoriaEventListener(this);
+        //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        //int heigth = screenSize.heigth;
+        //int width = screenSize.width;
+        //this.setSize(width/2, height/2 );
+        //this.setLocationRelativeTo(null);
     }
 
     /**
@@ -137,4 +148,19 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnuGestCategorie;
     private javax.swing.JMenuItem mnuesci;
     // End of variables declaration//GEN-END:variables
+
+   @Override
+    public void onCreate(Categoria c) {
+        JOptionPane.showMessageDialog(this, "Nuova Categoria salvata "); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onUddate(Categoria c) {
+     JOptionPane.showMessageDialog(this, "Categoria modificata"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void onDelete(Categoria c) {
+         JOptionPane.showMessageDialog(this, "Categoria eliminata "); //To change body of generated methods, choose Tools | Templates.
+    }
 }

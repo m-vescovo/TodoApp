@@ -126,7 +126,7 @@ public class CategoriaEdit extends javax.swing.JDialog {
     private void cmdSalvaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdSalvaActionPerformed
      viewToModel();
      CategoriaService.save(categoria);
-     JOptionPane.showMessageDialog(this, "categoria salvata");
+    // JOptionPane.showMessageDialog(this, "categoria salvata");
      close();
      
     }//GEN-LAST:event_cmdSalvaActionPerformed

@@ -46,7 +46,8 @@ private static List<CategoriaEventListener> listeners= new ArrayList<>();
     public static void elimina(Categoria c){
         EntityManager em =DbService.getEm();
         em.getTransaction().begin();//inizia la lista dei comandi da fare tutti assieme
-        em.remove(c);
+        Categoria find= em.find(Categoria.class, c.getId());
+        em.remove(find);
         em.getTransaction().commit();//finisce la lista delle azioni ed esegue tutte le operazioni tutte assieme
         //richiama il metodo onElimina su tutti gli ascoltatori iscritti
         for(CategoriaEventListener listener: listeners){

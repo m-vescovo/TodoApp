@@ -50,17 +50,17 @@ class AscoltaEventiCategoria implements CategoriaEventListener{
     
      @Override
     public void onCreate(Categoria c) {
-        System.out.println("hai creato la classe: "+c); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("hai creato la categoria: "); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onUddate(Categoria c) {
-        System.out.println("hai aggiornato la classe: "+c); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("hai aggiornato la categoria: "); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void onDelete(Categoria c) {
-        System.out.println("hai eliminato la classe: "+c); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("hai eliminato la categoria: "); //To change body of generated methods, choose Tools | Templates.
    
         
     }
